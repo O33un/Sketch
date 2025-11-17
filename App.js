@@ -61,7 +61,7 @@ export default function App() {
           </View>
 
            <View>
-            <Text style={styles.textDesign}> Distance Covered :</Text>
+            <Text style={styles.textDesign}> Distance Covered :65</Text>
           </View>
 
            <View>
