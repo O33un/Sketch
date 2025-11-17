@@ -3,7 +3,6 @@ import { Pedometer } from "expo-sensors";
 import { Text, View, ImageBackground, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import CircularProgress from "react-native-circular-progress-indicator";
-
 export default function App() {
   const [pedometerAvailability, setPedometerAvailability] = useState("");
   const [stepCount, updateStepCount] = useState(0);
@@ -40,9 +39,9 @@ export default function App() {
           <Text style={styles.text}>
             Is Pedometer Available on the device : {pedometerAvailability}
           </Text>
-          <View>
+          <View style={styles.circularBar}>
             <CircularProgress
-              value={2}
+              value={stepCount}
               maxValue={6500}
               radius={90}
               duration={2000}
@@ -55,6 +54,18 @@ export default function App() {
               titleColor={"#faf9f9ff"}
               titleStyle={{ fontWeight: "bold" }}
             />
+          </View>
+          <View></View>
+          <View>
+            <Text style={styles.textDesign}> Target : 6500 steps (5kms)</Text>
+          </View>
+
+           <View>
+            <Text style={styles.textDesign}> Distance Covered :</Text>
+          </View>
+
+           <View>
+            <Text style={styles.textDesign}> Calories Burnt :</Text>
           </View>
         </View>
       </ImageBackground>
@@ -80,9 +91,24 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 20,
     fontWeight: "bold",
-    fontFamily: "papyrus",
+    //fontFamily: "papyrus",
   },
   stepCount: {
     color: "white",
+  },
+  textDesign:{
+    backgroundColor: "rgba(155,89,182,0.5)",
+    height:50,
+    width:"80%",
+    borderColor: "white",
+    borderWidth:1,
+    borderRadius:20,
+    overflow:"hidden",
+    fontSize:25,
+    color:"white",
+    fontWeight:"bold",
+  },
+  circularBar:{
+    flex:3,
   },
 });
